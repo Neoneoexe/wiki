@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% for message in messages %}
+        
+        <div class="alert alert-success" style="background-color: rgb(241, 143, 143);">
+            <a class="close" href="{% url 'paths:cnp' %}" data-dismiss="alert" style="color: red;">×</a>
+            {{ message }}
+        </div>
+
+    {% endfor %}
+     <form action="{% url 'paths:cnp' %}" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Create Entery</button>
+    </form>
+{% endblock %}

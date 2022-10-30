@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% for message in messages %}
+            
+    <div class="alert alert-success" style="background-color: rgb(143, 241, 159);">
+        <a class="close" href="/wiki/{{name}}" data-dismiss="alert" style="color: rgb(255, 255, 255);">×</a>
+        {{ message }}
+    </div>
+
+    {% endfor %}
+
+
+    <div>
+        {{wiki |safe}}
+    </div>
+    <button><a href="/edit/{{name}}">Edit Page</a></button>
+{% endblock %}
